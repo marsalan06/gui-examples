@@ -11,6 +11,11 @@ def butto_click(number):
     #e.delete(0,END)
     e.insert(0,str(num)+ str(number))
 
+def frac():
+    num=e.get()
+    e.delete(0,END)
+    e.insert(-1,str(num)+".")
+
 def clr_scr():
     e.delete(0,END)
 
@@ -20,7 +25,7 @@ def func_call(sign):
         global fir
         global s
         s="min"
-        fir=int(f_num)
+        fir=float(f_num)
         e.delete(0,END)
         print(fir)
     def add():
@@ -28,7 +33,7 @@ def func_call(sign):
         global fir
         global s
         s="add"
-        fir=int(f_num)
+        fir=float(f_num)
         e.delete(0,END)
         print(fir)
     def multi():
@@ -36,7 +41,7 @@ def func_call(sign):
         global fir
         global s
         s="multi"
-        fir=int(f_num)
+        fir=float(f_num)
         e.delete(0,END)
         print(fir)
     def div():
@@ -44,24 +49,24 @@ def func_call(sign):
         global fir
         global s
         s="div"
-        fir=int(f_num)
+        fir=float(f_num)
         e.delete(0,END)
         print(fir)
     def equal():
         s_num=e.get()
         e.delete(0,END)
         if s=="add":
-            e.insert(0,int(s_num)+int(fir))
-            print(int(s_num)+int(fir))
+            e.insert(0,float(s_num)+float(fir))
+            print(float(s_num)+float(fir))
         elif s=="min":
-            e.insert(0,int(fir)-int(s_num))
-            print(int(fir)-int(s_num))
+            e.insert(0,float(fir)-float(s_num))
+            print(float(fir)-float(s_num))
         elif s=="div":
-            e.insert(0,int(fir)/int(s_num))
-            print(int(fir)/int(s_num))
+            e.insert(0,float(fir)/float(s_num))
+            print(float(fir)/float(s_num))
         elif s=="multi":
-            e.insert(0,int(s_num)*int(fir))
-            print(int(s_num)*int(fir))
+            e.insert(0,float(s_num)*float(fir))
+            print(float(s_num)*float(fir))
 
 
     if sign=="-":
@@ -74,6 +79,7 @@ def func_call(sign):
         div()
     elif sign=="eq":
         equal()
+    
 
 butto_1=Button(root,text="1",width=10,height=1,bg="GRAY",command=lambda: butto_click(1)).grid(row=1,column=0)
 butto_2=Button(root,text="2",width=10,height=1,bg="GRAY",command=lambda: butto_click(2)).grid(row=1,column=1)
@@ -88,12 +94,13 @@ butto_8=Button(root,text="8",width=10,height=1,bg="GRAY",command=lambda: butto_c
 butto_9=Button(root,text="9",width=10,height=1,bg="GRAY",command=lambda: butto_click(9)).grid(row=3,column=2)
 butto_0=Button(root,text="0",width=10,height=1,bg="GRAY",command=lambda: butto_click(0)).grid(row=4,column=1)
 
-butto_equal=Button(root,text="=",width=10,height=1,bg="GRAY",command= lambda: func_call("eq")).grid(row=4,column=2)
+butto_clear=Button(root,text="CLR",width=10,height=1,bg="GRAY",command= clr_scr).grid(row=4,column=2)
 butto_minus=Button(root,text="-",width=10,height=1,bg="GRAY",command=lambda: func_call("-")).grid(row=4,column=0)
 butto_add=Button(root,text="+",width=10,height=1,bg="GRAY",command=lambda: func_call("+")).grid(row=5,column=1)
 butto_multi=Button(root,text="x",width=10,height=1,bg="GRAY",command=lambda: func_call("x")).grid(row=5,column=0)
 butto_divide=Button(root,text="/",width=10,height=1,bg="GRAY",command=lambda: func_call("/")).grid(row=5,column=2)
-butto_clear=Button(root,text="CLR",width=40,height=1,bg="GRAY",command=clr_scr).grid(row=6,column=0,columnspan=3)
+butto_equal=Button(root,text="=",width=25,height=1,bg="GRAY",command=lambda: func_call("eq")).grid(row=6,column=0,columnspan=2)
+butto_frac=Button(root,text=".",width=10,height=1,bg="GRAY",command=frac).grid(row=6,column=2)
 root.resizable(height = 0, width = 0)
 root.mainloop()
 
