@@ -19,7 +19,7 @@ def frac():
 def clr_scr():
     e.delete(0,END)
 
-def func_call(sign):
+def func_cal(sign):
     def minus ():
         f_num=e.get()
         global fir
@@ -95,11 +95,11 @@ butto_9=Button(root,text="9",width=10,height=1,bg="GRAY",command=lambda: butto_c
 butto_0=Button(root,text="0",width=10,height=1,bg="GRAY",command=lambda: butto_click(0)).grid(row=4,column=1)
 
 butto_clear=Button(root,text="CLR",width=10,height=1,bg="GRAY",command= clr_scr).grid(row=4,column=2)
-butto_minus=Button(root,text="-",width=10,height=1,bg="GRAY",command=lambda: func_call("-")).grid(row=4,column=0)
-butto_add=Button(root,text="+",width=10,height=1,bg="GRAY",command=lambda: func_call("+")).grid(row=5,column=1)
-butto_multi=Button(root,text="x",width=10,height=1,bg="GRAY",command=lambda: func_call("x")).grid(row=5,column=0)
-butto_divide=Button(root,text="/",width=10,height=1,bg="GRAY",command=lambda: func_call("/")).grid(row=5,column=2)
-butto_equal=Button(root,text="=",width=25,height=1,bg="GRAY",command=lambda: func_call("eq")).grid(row=6,column=0,columnspan=2)
+butto_minus=Button(root,text="-",width=10,height=1,bg="GRAY",command=lambda: func_cal("-")).grid(row=4,column=0)
+butto_add=Button(root,text="+",width=10,height=1,bg="GRAY",command=lambda: func_cal("+")).grid(row=5,column=1)
+butto_multi=Button(root,text="x",width=10,height=1,bg="GRAY",command=lambda: func_cal("x")).grid(row=5,column=0)
+butto_divide=Button(root,text="/",width=10,height=1,bg="GRAY",command=lambda: func_cal("/")).grid(row=5,column=2)
+butto_equal=Button(root,text="=",width=25,height=1,bg="GRAY",command=lambda: func_cal("eq")).grid(row=6,column=0,columnspan=2)
 butto_frac=Button(root,text=".",width=10,height=1,bg="GRAY",command=frac).grid(row=6,column=2)
 root.resizable(height = 0, width = 0)
 root.mainloop()
