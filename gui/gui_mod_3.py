@@ -5,14 +5,13 @@ import csv
 
 def get_combo(combo):
     global combine
-    combine= StringVar()
-    combine.set(combo)
-    print(combo)
+    combine=combo
+    print(combine+" got this as combine")
     return combine #--> cant get this to next func
 #working here
-def to_csv(event):
+def to_csv(event,arg):
     print(cet.get())
-    print(combine.get())#<-- cant get it here
+    print(arg)#<-- cant get it here
 
 def value_enter(value): 
     coot=Tk()
@@ -29,7 +28,7 @@ def value_enter(value):
     vrb=StringVar()
     vrb.set("-")
     cet=Entry(fr_2,textvariable=vrb,width=15,bg="white")
-    cet.bind("<Return>",to_csv)
+    cet.bind("<Return>",lambda event, arg=combine:to_csv(event,arg))
     cet.grid(row=0,column=1)
     #for i in range(0,value):
            
@@ -39,16 +38,18 @@ def value_enter(value):
 def clck(event):
     print(e.get())
     global value 
-    value=e.get()    
-    try:
-        print(int(value)) 
-        print(type(value))
-        boot.destroy()
-        if int(value)!= 0:
-            value_enter(int(value))
-        return int(value)
-    except: ValueError
-    messagebox.showerror("Value Error", "Value "+value+" is not valid number.")
+    value=int(e.get())    
+    print(value) 
+    print(type(value))
+    boot.destroy()
+    if value!= 0:
+        value_enter(value)
+        return value
+# except: ValueError
+# messagebox.showerror("Value Error", "Value "+str(value)+" is not valid number.")
+    else:
+        messagebox.showerror("Value Error", "Value "+str(value)+" is not valid number.")
+        messagebox.showinfo("File Creation","File was created with date and file name")
 
 def cell_slect():
     global boot

@@ -40,6 +40,7 @@ def fle_chk(combo,o):
         if path.is_file()== True:
             print("File is created")
             messagebox.showinfo("File status","File "+o+" created at "+combo)
+            gt(combo)
             b()
     else:
         print("file mising")
@@ -58,7 +59,6 @@ def direct_path(o): #to create a excel file
             file_handler.writerow([dte,nme])
         print(combo)
         fle_chk(combo,o)
-        gt(combo)
         return combo
     else:
         messagebox.showerror("Invalid file name","Please Check file name.")

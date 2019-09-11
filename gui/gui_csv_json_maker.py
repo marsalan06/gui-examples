@@ -11,7 +11,7 @@ f_1=Frame(root,height=50,width=300,bg="#D3D3D3")
 f_1.grid(row=1,column=0)#frames created
 global fst_lab
 fst_lab=StringVar()
-fst_lab.set("0")
+fst_lab.set("_")
 global lab_1
 lab_1=Label(f_1,textvariable=fst_lab)
 lab_1.grid(row=2,columnspan=3) #label for 1st click value
